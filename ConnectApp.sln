@@ -5,6 +5,12 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ConnectAppAPI.DB", "ConnectAppAPI.DB\ConnectAppAPI.DB.sqlproj", "{871D154B-17BE-44B8-B66D-0E5D6B0316F9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectAppAPI.Presentation", "ConnectAppAPI.Presentation\ConnectAppAPI.Presentation.csproj", "{81154FD2-C110-45E8-AB69-3A2A422FE055}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectAppAPI.Services", "ConnectAppAPI.Services\ConnectAppAPI.Services.csproj", "{01A2D0A0-4832-4F3C-AD3C-7FB2B77A365B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectAppAPI.DataAccess", "ConnectAppAPI.DataAccess\ConnectAppAPI.DataAccess.csproj", "{74E636AB-9EAC-4008-B110-27ABAD04FFA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +23,18 @@ Global
 		{871D154B-17BE-44B8-B66D-0E5D6B0316F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{871D154B-17BE-44B8-B66D-0E5D6B0316F9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{871D154B-17BE-44B8-B66D-0E5D6B0316F9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{81154FD2-C110-45E8-AB69-3A2A422FE055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81154FD2-C110-45E8-AB69-3A2A422FE055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81154FD2-C110-45E8-AB69-3A2A422FE055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81154FD2-C110-45E8-AB69-3A2A422FE055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A2D0A0-4832-4F3C-AD3C-7FB2B77A365B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A2D0A0-4832-4F3C-AD3C-7FB2B77A365B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A2D0A0-4832-4F3C-AD3C-7FB2B77A365B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A2D0A0-4832-4F3C-AD3C-7FB2B77A365B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E636AB-9EAC-4008-B110-27ABAD04FFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E636AB-9EAC-4008-B110-27ABAD04FFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E636AB-9EAC-4008-B110-27ABAD04FFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E636AB-9EAC-4008-B110-27ABAD04FFA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
