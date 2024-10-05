@@ -18,7 +18,7 @@ namespace ConnectAppAPI.Services.Interfaces
     //    T delete(T entity);
     //}
 
-    public interface IRepository<T, K> :IDisposable
+    public interface IRepositoryGeneric<T, K> :IDisposable
     {
         List<T> GetAllAsync();
         T? GetByIdAsync(K id);
