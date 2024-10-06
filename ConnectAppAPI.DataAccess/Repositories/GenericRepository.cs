@@ -1,12 +1,35 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace ConnectAppAPI.DataAccess.Repositories
+//{
+//    internal class GeneticRepository
+//    {
+//    }
+//}
+
+
+//using Microsoft.EntityFrameworkCore;
+//using AppDbContextAPI.DataAccess;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Data;
+//using System.Linq.Expressions;
+
+using Microsoft.EntityFrameworkCore;
 using AppDbContextAPI.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data;
 using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ConnectAppAPI.Services.Interfaces
+namespace ConnectAppAPI.DataAccess.Repositories
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
