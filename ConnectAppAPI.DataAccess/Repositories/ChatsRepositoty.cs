@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class ChatRepository : GenericRepository<Chat>, IChatRepository
+    public class ChatRepository : Repository<Chat>, IChatRepository
     {
         public ChatRepository(AppDbContext context) : base(context)
         {

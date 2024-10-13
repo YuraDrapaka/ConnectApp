@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public interface IChatRepository : IGenericRepository<Chat>
+    public interface IChatRepository : IRepository<Chat>
     { 
 
     }

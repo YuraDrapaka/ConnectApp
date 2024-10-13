@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class UserRepository : GenericRepository<AspNetUser>, IUserRepository
+    public class UserRepository : Repository<AspNetUser>, IUserRepository
     {
         public UserRepository(AppDbContext context) : base(context)
         {

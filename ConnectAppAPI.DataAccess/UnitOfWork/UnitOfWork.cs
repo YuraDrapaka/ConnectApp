@@ -13,52 +13,52 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
     {
         private AppDbContext context = new AppDbContext();
 
-        private GenericRepository<Chat> chatRepository;
-        private GenericRepository<Media> mediaRepository;
-        private GenericRepository<Message> messageRepository;
-        private GenericRepository<AspNetUser> aspUserRepository;
+        private Repository<Chat> chatRepository;
+        private Repository<Media> mediaRepository;
+        private Repository<Message> messageRepository;
+        private Repository<AspNetUser> aspUserRepository;
 
-        public GenericRepository<Chat> ChatRepository
+        public Repository<Chat> ChatRepository
         {
             get
             {
                 if (chatRepository == null)
                 {
-                    chatRepository = new GenericRepository<Chat>(context);
+                    chatRepository = new Repository<Chat>(context);
                 }
                 return chatRepository;
             }
         }
 
-        public GenericRepository<Media> MediaRepository
+        public Repository<Media> MediaRepository
         {
             get
             {
                 if (mediaRepository == null)
                 {
-                    mediaRepository = new GenericRepository<Media>(context);
+                    mediaRepository = new Repository<Media>(context);
                 }
                 return mediaRepository;
             }
         }
-        public GenericRepository<Message> MessageRepository
+        public Repository<Message> MessageRepository
         {
             get
             {
                 if (messageRepository == null)
                 {
-                    messageRepository = new GenericRepository<Message>(context);
+                    messageRepository = new Repository<Message>(context);
                 }
                 return messageRepository;
             }
         }
-        public GenericRepository<AspNetUser> AspUserRepository
+        public Repository<AspNetUser> AspUserRepository
         {
             get
             {
                 if (AspUserRepository == null)
                 {
-                    aspUserRepository = new GenericRepository<AspNetUser>(context);
+                    aspUserRepository = new Repository<AspNetUser>(context);
                 }
                 return aspUserRepository;
             }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public interface IUserRepository : IGenericRepository<AspNetUser>
+    public interface IUserRepository : IRepository<AspNetUser>
     {
 
     }

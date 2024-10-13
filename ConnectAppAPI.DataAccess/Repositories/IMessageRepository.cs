@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public interface IMessageRepository : IGenericRepository<Message>
+    public interface IMessageRepository : IRepository<Message>
     {
 
     }

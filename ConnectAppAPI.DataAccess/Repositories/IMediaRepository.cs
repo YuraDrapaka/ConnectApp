@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public interface IMediaRepository : IGenericRepository<Media>
+    public interface IMediaRepository : IRepository<Media>
     {
 
     }

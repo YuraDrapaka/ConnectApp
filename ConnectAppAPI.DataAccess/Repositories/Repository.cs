@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         internal AppDbContext context;
         internal DbSet<TEntity> dbSet;
 
-        public GenericRepository(AppDbContext context)
+        public Repository(AppDbContext context)
         {
             this.context = context;
             dbSet = context.Set<TEntity>();
