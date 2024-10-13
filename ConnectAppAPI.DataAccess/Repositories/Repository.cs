@@ -40,8 +40,14 @@ namespace ConnectAppAPI.DataAccess.Repositories
             else
                 return await query.ToListAsync();
         }
-        public async Task<TEntity> GetByIDAsync(object id) => await dbSet.FindAsync(id);
-        public async Task InsertAsync(TEntity entity) => await dbSet.AddAsync(entity);
+        public async Task<TEntity> GetByIDAsync(object id)
+        {
+            return await dbSet.FindAsync(id);
+        }
+        public async Task InsertAsync(TEntity entity)
+        {
+            await dbSet.AddAsync(entity);
+        }
         public async Task DeleteAsync(object id)
         {
             var entity = await dbSet.FindAsync(id);
