@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class MediaRepository : GenericRepository<Media>
+    public class MediaRepository : GenericRepository<Media>, IMediaRepository
     {
         public MediaRepository(AppDbContext context) : base(context)
         {

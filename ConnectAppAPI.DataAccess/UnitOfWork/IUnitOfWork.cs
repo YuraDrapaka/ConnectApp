@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConnectAppAPI.DataAccess
+namespace ConnectAppAPI.DataAccess.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {

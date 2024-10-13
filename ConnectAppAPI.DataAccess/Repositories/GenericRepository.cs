@@ -17,11 +17,11 @@ namespace ConnectAppAPI.DataAccess.Repositories
         public GenericRepository(AppDbContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<TEntity>();
+            dbSet = context.Set<TEntity>();
         }
         public async Task<IEnumerable<TEntity>> GetAsync(
-            Expression<Func<TEntity, bool>> filter = null, 
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
+            Expression<Func<TEntity, bool>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "")
         {
             IQueryable<TEntity> query = dbSet;

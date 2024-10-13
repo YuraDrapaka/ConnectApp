@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConnectAppAPI.DataAccess
+namespace ConnectAppAPI.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IDisposable
     {
@@ -20,11 +20,11 @@ namespace ConnectAppAPI.DataAccess
 
         public GenericRepository<Chat> ChatRepository
         {
-            get 
+            get
             {
-                if(this.chatRepository == null)
+                if (chatRepository == null)
                 {
-                    this.chatRepository = new GenericRepository<Chat> (context);
+                    chatRepository = new GenericRepository<Chat>(context);
                 }
                 return chatRepository;
             }
@@ -34,9 +34,9 @@ namespace ConnectAppAPI.DataAccess
         {
             get
             {
-                if (this.mediaRepository == null)
+                if (mediaRepository == null)
                 {
-                    this.mediaRepository = new GenericRepository<Media>(context);
+                    mediaRepository = new GenericRepository<Media>(context);
                 }
                 return mediaRepository;
             }
@@ -45,9 +45,9 @@ namespace ConnectAppAPI.DataAccess
         {
             get
             {
-                if (this.messageRepository == null)
+                if (messageRepository == null)
                 {
-                    this.messageRepository = new GenericRepository<Message>(context);
+                    messageRepository = new GenericRepository<Message>(context);
                 }
                 return messageRepository;
             }
@@ -56,9 +56,9 @@ namespace ConnectAppAPI.DataAccess
         {
             get
             {
-                if(this.AspUserRepository == null)
-                { 
-                    this.aspUserRepository = new GenericRepository<AspNetUser> (context);
+                if (AspUserRepository == null)
+                {
+                    aspUserRepository = new GenericRepository<AspNetUser>(context);
                 }
                 return aspUserRepository;
             }
@@ -73,14 +73,14 @@ namespace ConnectAppAPI.DataAccess
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
                     context.Dispose();
                 }
             }
-            this.disposed = true;
+            disposed = true;
         }
 
         public void Dispose()

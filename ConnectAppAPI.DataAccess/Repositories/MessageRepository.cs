@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class MessageRepository : GenericRepository<Message>
+    public class MessageRepository : GenericRepository<Message>, IMessageRepository
     {
         public MessageRepository(AppDbContext context) : base(context)
         {

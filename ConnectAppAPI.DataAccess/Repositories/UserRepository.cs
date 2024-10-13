@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class UserRepository : GenericRepository<AspNetUser>
+    public class UserRepository : GenericRepository<AspNetUser>, IUserRepository
     {
-        public UserRepository(AppDbContext context) : base(context) 
-        { 
+        public UserRepository(AppDbContext context) : base(context)
+        {
         }
     }
 }
