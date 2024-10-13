@@ -1,26 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-
-//namespace ConnectAppAPI.DataAccess.Repositories
-//{
-//    internal class GeneticRepository
-//    {
-//    }
-//}
-
-
-//using Microsoft.EntityFrameworkCore;
-//using AppDbContextAPI.DataAccess;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Data;
-//using System.Linq.Expressions;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using AppDbContextAPI.DataAccess;
 using System;
 using System.Collections.Generic;
@@ -31,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConnectAppAPI.DataAccess.Repositories
 {
-    public class GenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         internal AppDbContext context;
         internal DbSet<TEntity> dbSet;
@@ -41,18 +19,15 @@ namespace ConnectAppAPI.DataAccess.Repositories
             this.context = context;
             this.dbSet = context.Set<TEntity>();
         }
-
-        public virtual IEnumerable<TEntity> Get(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        public async Task<IEnumerable<TEntity>> GetAsync(
+            Expression<Func<TEntity, bool>> filter = null, 
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
             string includeProperties = "")
         {
             IQueryable<TEntity> query = dbSet;
 
             if (filter != null)
-            {
                 query = query.Where(filter);
-            }
 
             foreach (var includeProperty in includeProperties.Split
                 (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
@@ -61,32 +36,22 @@ namespace ConnectAppAPI.DataAccess.Repositories
             }
 
             if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
+                return await orderBy(query).ToListAsync();
             else
-            {
-                return query.ToList();
-            }
+                return await query.ToListAsync();
         }
-
-        public virtual TEntity GetByID(object id)
+        public async Task<TEntity> GetByIDAsync(object id) => await dbSet.FindAsync(id);
+        public async Task InsertAsync(TEntity entity) => await dbSet.AddAsync(entity);
+        public async Task DeleteAsync(object id)
         {
-            return dbSet.Find(id);
+            var entity = await dbSet.FindAsync(id);
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
+
+            dbSet.Remove(entity);
         }
 
-        public virtual void Insert(TEntity entity)
-        {
-            dbSet.Add(entity);
-        }
-
-        public virtual void Delete(object id)
-        {
-            TEntity entityToDelete = dbSet.Find(id);
-            Delete(entityToDelete);
-        }
-
-        public virtual void Delete(TEntity entityToDelete)
+        public async Task DeleteAsync(TEntity entityToDelete)
         {
             if (context.Entry(entityToDelete).State == EntityState.Detached)
             {
@@ -95,10 +60,11 @@ namespace ConnectAppAPI.DataAccess.Repositories
             dbSet.Remove(entityToDelete);
         }
 
-        public virtual void Update(TEntity entityToUpdate)
+        public async Task UpdateAsync(TEntity entityToUpdate)
         {
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
+
     }
 }
