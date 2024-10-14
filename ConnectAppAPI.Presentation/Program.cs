@@ -1,6 +1,10 @@
 //using ConnectAppAPI.DataAccess.Repositories;
 //using ConnectAppAPI.DataAccess.UnitOfWork;
 
+using AppDbContextAPI.DataAccess;
+using ConnectAppAPI.DataAccess.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +21,20 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddScoped<IUserRepository, UserRepository>();
 //builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+
+//// Налаштування рядка підключення
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+//// Додавання контексту бази даних
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//    options.UseSqlServer(connectionString));
+
+//// Додавання UnitOfWork та сервісів
+//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+//builder.Services.AddScoped<IMessageService, MessageService>();
+
+//// Інші конфігурації
+//builder.Services.AddControllers();
 
 var app = builder.Build();
 
