@@ -1,4 +1,5 @@
 ﻿using ConnectAppAPI.DataAccess;
+using ConnectAppAPI.Presentation.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConnectAppAPI.Presentation.Controllers
@@ -17,7 +18,7 @@ namespace ConnectAppAPI.Presentation.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = _context.AspNetUsers.ToList();
+            var users = _context.AspNetUsers.ToList().Select(s => s.ToUserDTO());
             return Ok(users);
         }
 
@@ -29,7 +30,7 @@ namespace ConnectAppAPI.Presentation.Controllers
             {
                 return NotFound();
             }
-            return Ok(user);
+            return Ok(user.ToUserDTO());
         }
     }
 }
