@@ -7,7 +7,7 @@ public partial class Message
 {
     public int MsId { get; set; }
 
-    public byte[] Time { get; set; } = null!;
+    public DateTime Time { get; set; }
 
     public string Text { get; set; } = null!;
 
@@ -15,7 +15,7 @@ public partial class Message
 
     public string? ToUserIdFk { get; set; }
 
-    public int MediaIdFk { get; set; }
+    public int? MediaIdFk { get; set; }
 
     public bool IsEdited { get; set; }
 
@@ -31,7 +31,7 @@ public partial class Message
 
     public virtual ICollection<Message> InverseOldMessageIdFkNavigation { get; set; } = new List<Message>();
 
-    public virtual Media MediaIdFkNavigation { get; set; } = null!;
+    public virtual Media? MediaIdFkNavigation { get; set; }
 
     public virtual Message? OldMessageIdFkNavigation { get; set; }
 

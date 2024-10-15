@@ -11,7 +11,7 @@ public partial class Media
 
     public double Size { get; set; }
 
-    public byte[] UploadTime { get; set; } = null!;
+    public DateTime UploadTime { get; set; }
 
     public string? AuthorIdFk { get; set; }
 

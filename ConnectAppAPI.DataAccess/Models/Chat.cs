@@ -9,7 +9,7 @@ public partial class Chat
 
     public string? Description { get; set; }
 
-    public byte[] CreationTime { get; set; } = null!;
+    public DateTime CreationTime { get; set; }
 
     public string? Icon { get; set; }
 

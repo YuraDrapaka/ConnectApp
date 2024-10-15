@@ -43,7 +43,7 @@ public partial class AspNetUser
 
     public string? Description { get; set; }
 
-    public DateOnly? Birthday { get; set; }
+    public DateTime? Birthday { get; set; }
 
     public int? IconFk { get; set; }
 
