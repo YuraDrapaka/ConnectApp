@@ -1,4 +1,4 @@
-using AppDbContextAPI.DataAccess;
+using ConnectAppAPI.DataAccess;
 using ConnectAppAPI.DataAccess.Repositories;
 using ConnectAppAPI.DataAccess.UnitOfWork;
 using ConnectAppAPI.Services.Interfaces;
@@ -8,16 +8,15 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // Add services to the container.
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
 // Connection string setup
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection3");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 

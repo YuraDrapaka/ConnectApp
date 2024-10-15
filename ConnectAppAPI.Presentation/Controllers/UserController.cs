@@ -1,4 +1,4 @@
-﻿using AppDbContextAPI.DataAccess;
+﻿using ConnectAppAPI.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConnectAppAPI.Presentation.Controllers
@@ -24,7 +24,7 @@ namespace ConnectAppAPI.Presentation.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById([FromRoute] int id)
         {
-            var user = _context.AspNetUsers.Find(id);
+            var user = _context.AspNetUsers.Find(id.ToString());
             if (user == null)
             {
                 return NotFound();

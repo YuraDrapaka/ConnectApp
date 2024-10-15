@@ -1,5 +1,4 @@
-﻿using AppDbContextAPI.DataAccess;
-using ConnectAppAPI.DataAccess.Models;
+﻿using ConnectAppAPI.DataAccess.Models;
 using ConnectAppAPI.DataAccess.Repositories;
 
 namespace ConnectAppAPI.DataAccess.UnitOfWork
