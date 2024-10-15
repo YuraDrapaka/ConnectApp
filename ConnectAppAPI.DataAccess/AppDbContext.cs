@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConnectAppAPI.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConnectAppAPI.DataAccess.Models;
+namespace ConnectAppAPI.DataAccess;
 
 public partial class AppDbContext : DbContext
 {

@@ -1,4 +1,4 @@
-﻿using AppDbContextAPI.DataAccess;
+﻿//using ConnectAppAPI.DataAccess;
 using ConnectAppAPI.DataAccess.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,6 @@ namespace ConnectAppAPI.DataAccess.Repositories
     {
         public MediaRepository(AppDbContext context) : base(context)
         {
-
         }
     }
 }

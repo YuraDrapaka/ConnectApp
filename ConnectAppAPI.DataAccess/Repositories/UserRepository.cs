@@ -1,5 +1,4 @@
-﻿using AppDbContextAPI.DataAccess;
-using ConnectAppAPI.DataAccess.Models;
+﻿using ConnectAppAPI.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
