@@ -7,39 +7,32 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-//// Connection string setup
+// Connection string setup
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-
-
-//// Додавання контексту бази даних
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//    options.UseSqlServer(connectionString));
 
 
 // Registration UnitOfWork and Repositories
 //builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IChatRepository, ChatRepository>();
-builder.Services.AddScoped<IMediaRepository, MediaRepository>();
-builder.Services.AddScoped<IMessageRepository, MessageRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+//builder.Services.AddScoped<IChatRepository, ChatRepository>();
+//builder.Services.AddScoped<IMediaRepository, MediaRepository>();
+//builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+//builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Registration of Services
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IChatService, ChatService>();
-builder.Services.AddScoped<IMessageService, MessageService>();
-builder.Services.AddScoped<IMediaService, MediaService>();
+//builder.Services.AddScoped<IUserService, UserService>();
+//builder.Services.AddScoped<IChatService, ChatService>();
+//builder.Services.AddScoped<IMessageService, MessageService>();
+//builder.Services.AddScoped<IMediaService, MediaService>();
 
 
 

@@ -18,7 +18,7 @@
     [Last Name]            VARCHAR (50)       NULL,
     [UserTag]              VARCHAR (50)       NULL,
     [Description]          VARCHAR (50)       NULL,
-    [Birthday]             DATE               NULL,
+    [Birthday]             DATETIME               NULL,
     [Icon_FK]              INT                NULL,
     [IsDeleted?]           BIT                DEFAULT ((0)) NOT NULL,
     CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
