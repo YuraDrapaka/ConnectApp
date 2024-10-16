@@ -1,10 +1,10 @@
 ﻿CREATE TABLE [dbo].[Messages] (
     [Ms_Id]           INT            IDENTITY (1, 1) NOT NULL,
-    [Time]            ROWVERSION     NOT NULL,
+    [Time]            DATETIME     NOT NULL,
     [Text]            TEXT           NOT NULL,
     [From_UserID_FK]  NVARCHAR (450) NOT NULL,
     [To_UserID_FK]    NVARCHAR (450) NULL,
-    [MediaID_FK]      INT            NOT NULL,
+    [MediaID_FK]      INT            NULL,
     [IsEdited?]       BIT            NOT NULL,
     [IsViewed?]       BIT            NOT NULL,
     [IsDeleted?]      BIT            NOT NULL,
