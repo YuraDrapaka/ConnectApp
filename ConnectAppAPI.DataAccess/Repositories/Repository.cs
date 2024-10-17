@@ -39,7 +39,7 @@ namespace ConnectAppAPI.DataAccess.Repositories
             else
                 return await query.ToListAsync();
         }
-        public async Task<TEntity> GetByIDAsync(object id)
+        public async Task<TEntity> GetByIdAsync(object id)
         {
             return await dbSet.FindAsync(id);
         }

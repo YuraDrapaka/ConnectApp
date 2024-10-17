@@ -5,12 +5,17 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IDisposable
     {
-        private AppDbContext context = new AppDbContext();
-
+        private AppDbContext _context; /*= new AppDbContext();*/
         private Repository<Chat> chatRepository;
         private Repository<Media> mediaRepository;
         private Repository<Message> messageRepository;
         private Repository<AspNetUser> aspUserRepository;
+
+        public UnitOfWork(AppDbContext context) 
+        {
+            this._context = context;
+        }
+
 
         public Repository<Chat> ChatRepository
         {
@@ -18,19 +23,18 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
             {
                 if (chatRepository == null)
                 {
-                    chatRepository = new Repository<Chat>(context);
+                    chatRepository = new Repository<Chat>(_context);
                 }
                 return chatRepository;
             }
         }
-
         public Repository<Media> MediaRepository
         {
             get
             {
                 if (mediaRepository == null)
                 {
-                    mediaRepository = new Repository<Media>(context);
+                    mediaRepository = new Repository<Media>(_context);
                 }
                 return mediaRepository;
             }
@@ -41,7 +45,7 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
             {
                 if (messageRepository == null)
                 {
-                    messageRepository = new Repository<Message>(context);
+                    messageRepository = new Repository<Message>(_context);
                 }
                 return messageRepository;
             }
@@ -52,7 +56,7 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
             {
                 if (AspUserRepository == null)
                 {
-                    aspUserRepository = new Repository<AspNetUser>(context);
+                    aspUserRepository = new Repository<AspNetUser>(_context);
                 }
                 return aspUserRepository;
             }
@@ -60,7 +64,7 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
 
         public void Save()
         {
-            context.SaveChanges();
+           _context.SaveChanges();
         }
 
         private bool disposed = false;
@@ -71,7 +75,7 @@ namespace ConnectAppAPI.DataAccess.UnitOfWork
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             disposed = true;

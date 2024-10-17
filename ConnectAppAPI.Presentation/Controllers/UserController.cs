@@ -10,14 +10,11 @@ namespace ConnectAppAPI.Presentation.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        private readonly AppDbContext _context;
         private readonly IUserRepository _userRepo;
-        public UserController(AppDbContext context, IUserRepository userRepo)
+        public UserController( IUserRepository userRepo)
         {
-            _context = context;
-            _userRepo= userRepo;
+            _userRepo = userRepo;
         }
-
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
@@ -29,7 +26,7 @@ namespace ConnectAppAPI.Presentation.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
-            var user = await _context.AspNetUsers.FindAsync(id.ToString());
+            var user = await _userRepo.GetByIdAsync(id.ToString());
             if (user == null)
             {
                 return NotFound();

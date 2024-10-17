@@ -14,7 +14,7 @@ namespace ConnectAppAPI.DataAccess.Repositories
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "");
 
-        Task<TEntity> GetByIDAsync(object id);
+        Task<TEntity> GetByIdAsync(object id);
         Task InsertAsync(TEntity entity);
         Task DeleteAsync(object id);
         Task DeleteAsync(TEntity entityToDelete);
