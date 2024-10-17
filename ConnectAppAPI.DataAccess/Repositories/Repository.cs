@@ -10,15 +10,15 @@ namespace ConnectAppAPI.DataAccess.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        internal AppDbContext context;
-        internal DbSet<TEntity> dbSet;
+        private readonly AppDbContext _context;
+        private readonly DbSet<TEntity> dbSet;
 
         public Repository(AppDbContext context)
         {
-            this.context = context;
+            this._context = context;
             dbSet = context.Set<TEntity>();
         }
-        public async Task<IEnumerable<TEntity>> GetAsync(
+        public async Task<IEnumerable<TEntity>> GetAllAsync(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             string includeProperties = "")
@@ -58,7 +58,7 @@ namespace ConnectAppAPI.DataAccess.Repositories
 
         public async Task DeleteAsync(TEntity entityToDelete)
         {
-            if (context.Entry(entityToDelete).State == EntityState.Detached)
+            if (_context.Entry(entityToDelete).State == EntityState.Detached)
             {
                 dbSet.Attach(entityToDelete);
             }
@@ -68,7 +68,7 @@ namespace ConnectAppAPI.DataAccess.Repositories
         public async Task UpdateAsync(TEntity entityToUpdate)
         {
             dbSet.Attach(entityToUpdate);
-            context.Entry(entityToUpdate).State = EntityState.Modified;
+            _context.Entry(entityToUpdate).State = EntityState.Modified;
         }
 
     }

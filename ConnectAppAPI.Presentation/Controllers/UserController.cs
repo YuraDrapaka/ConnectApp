@@ -1,6 +1,8 @@
 ﻿using ConnectAppAPI.DataAccess;
+using ConnectAppAPI.DataAccess.Repositories;
 using ConnectAppAPI.Presentation.Mappers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConnectAppAPI.Presentation.Controllers
 {
@@ -9,23 +11,25 @@ namespace ConnectAppAPI.Presentation.Controllers
     public class UserController : Controller
     {
         private readonly AppDbContext _context;
-        public UserController(AppDbContext context)
+        private readonly IUserRepository _userRepo;
+        public UserController(AppDbContext context, IUserRepository userRepo)
         {
             _context = context;
+            _userRepo= userRepo;
         }
 
 
         [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _context.AspNetUsers.ToList().Select(s => s.ToUserDTO());
-            return Ok(users);
+        public async Task<IActionResult> GetAllAsync()
+        {            
+            var users = await _userRepo.GetAllAsync();
+            return Ok(users.Select(s => s.ToUserDTO()));
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
-            var user = _context.AspNetUsers.Find(id.ToString());
+            var user = await _context.AspNetUsers.FindAsync(id.ToString());
             if (user == null)
             {
                 return NotFound();

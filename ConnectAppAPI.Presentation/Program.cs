@@ -25,7 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn
 //builder.Services.AddScoped<IChatRepository, ChatRepository>();
 //builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 //builder.Services.AddScoped<IMessageRepository, MessageRepository>();
-//builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Registration of Services
 //builder.Services.AddScoped<IUserService, UserService>();
